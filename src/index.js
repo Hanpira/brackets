@@ -4,4 +4,16 @@ module.exports = function check(str, bracketsConfig) {
     return false;
   };
 
+  let arr = bracketsConfig.map(el => el.join(''));
+  for (let i = 0; i < arr.length;) {  /* coming through array finding out if there's bracket in the string */
+    if (str.includes(arr[i])) {
+    str = str.replace(arr[i], '');
+    i = 0;
+    }
+    else {
+      i ++;
+    }
+  }
+  return (str.length === 0);  /* return boolean */
+
 }
